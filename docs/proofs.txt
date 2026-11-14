@@ -1,0 +1,35 @@
+Captured Saturday, November 14, 2026 at 12:41:42 PM EST (America/New_York)
+Postgres 14.14; real local test database.
+
+> tracegate@1.0.0 test:proof
+> vitest run tests/integration.test.ts --reporter=verbose --disableConsoleIntercept
+
+
+ RUN  v5.1.0 /Users/sumanthkumar/Downloads/a1/tracegate
+
+PROOF 1 PASS: 5 blocked proposals; 0 blocked executions; injection document read, evil.com send blocked.
+PROOF 2 PASS: before approval 0 executions; after approval exactly 1 with named/timed approval; rejected call 0 executions.
+PROOF 3 PASS: 7/7 steps match decisions, reason codes and outcomes; 2 blocks, 2 approvals; 0 new tool effects.
+ ✓ tests/integration.test.ts > real Postgres proofs > PROOF 1: blocked never executes (including prompt injection) 57ms
+ ✓ tests/integration.test.ts > real Postgres proofs > prompt injection: document text cannot change policy decision 24ms
+ ✓ tests/integration.test.ts > real Postgres proofs > PROOF 2: approval gate holds; approve once and reject without execution 40ms
+ ✓ tests/integration.test.ts > real Postgres proofs > PROOF 3: full sample replay matches decisions and reason codes; no repeated side effects 33ms
+ ✓ tests/integration.test.ts > real Postgres proofs > API cannot approve or reject blocked steps 16ms
+ ✓ tests/integration.test.ts > real Postgres proofs > concurrent double approval executes exactly once 20ms
+ ✓ tests/integration.test.ts > real Postgres proofs > approve/reject race has one decision and at most one effect 19ms
+ ✓ tests/integration.test.ts > real Postgres proofs > search clamps to configured maximum and returns real rows 16ms
+ ✓ tests/integration.test.ts > real Postgres proofs > tools write actual draft, outbox and payment values 25ms
+ ✓ tests/integration.test.ts > real Postgres proofs > SQL tool error is recorded; transaction survives and subsequent proposals continue 20ms
+ ✓ tests/integration.test.ts > real Postgres proofs > replay preserves rejected approval and uses saved policy after config change 16ms
+ ✓ tests/integration.test.ts > real Postgres proofs > replay reports first differing step when recorded decision is inconsistent 14ms
+ ✓ tests/integration.test.ts > real Postgres proofs > pending queue exposes full arguments and decisions update list counts 18ms
+ ✓ tests/integration.test.ts > real Postgres proofs > rejects malformed API input, invalid IDs, unknown scenarios and missing name 13ms
+ ✓ tests/integration.test.ts > real Postgres proofs > unfinished replay returns a clear conflict 13ms
+ ✓ tests/integration.test.ts > real Postgres proofs > trace proposal and decision cannot be changed; statuses cannot move backwards 19ms
+ ✓ tests/integration.test.ts > real Postgres proofs > malformed policy stops the actual server at startup 304ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  12:41:27
+   Duration  1.00s (tests 80%, import 17%, transform 2%)
+

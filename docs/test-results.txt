@@ -1,0 +1,15 @@
+Captured Saturday, November 14, 2026 at 12:41:42 PM EST (America/New_York)
+Postgres 14.14; real local test database.
+
+> tracegate@1.0.0 test
+> vitest run
+
+
+ RUN  v5.1.0 /Users/sumanthkumar/Downloads/a1/tracegate
+
+
+ Test Files  2 passed (2)
+      Tests  39 passed (39)
+   Start at  12:41:15
+   Duration  2.07s (tests 78%, import 19%, transform 3%)
+

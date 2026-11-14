@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: tracegate
+      POSTGRES_PASSWORD: tracegate
+      POSTGRES_DB: tracegate
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracegate"]
+      interval: 2s
+      retries: 15
+volumes:
+  postgres_data:

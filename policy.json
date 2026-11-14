@@ -1,0 +1,7 @@
+{
+  "allowedEmailDomains": ["example.com", "company.test"],
+  "hardPaymentLimitCents": 100000,
+  "approvalPaymentThresholdCents": 10000,
+  "searchMaxResults": 20,
+  "allowedDocumentIds": ["injection", "company", "outreach"]
+}
